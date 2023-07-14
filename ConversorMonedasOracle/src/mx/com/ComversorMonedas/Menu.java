@@ -22,6 +22,8 @@ import javax.swing.SpinnerListModel;
 import java.awt.Choice;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 /**
  * Menu va crear la vnetana principal del programa en donde se podra elegir la opcion a realizar 
@@ -80,28 +82,29 @@ public class Menu extends JFrame {
 		label.setBounds(217, 115, 420, 21);
 		contentPane.add(label);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBackground(new Color(0, 0, 0));
-		comboBox.setForeground(new Color(255, 255, 255));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Conversor de Monedas", "Conversor de Tiempo", "Calculo de Perimetro para Figuras"}));
-		comboBox.setFont(new Font("VT323", Font.PLAIN, 22));
-		comboBox.setToolTipText("");
-		comboBox.setBounds(250, 169, 330, 24);
-		contentPane.add(comboBox);
+		JComboBox lstConversores = new JComboBox();
+		lstConversores.setBackground(new Color(0, 0, 0));
+		lstConversores.setForeground(new Color(255, 255, 255));
+		lstConversores.setModel(new DefaultComboBoxModel(new String[] {"Conversor de Monedas", "Conversor de Tiempo", "Calculo de Perimetro para Figuras"}));
+		lstConversores.setFont(new Font("VT323", Font.PLAIN, 22));
+		lstConversores.setToolTipText("");
+		lstConversores.setBounds(250, 169, 330, 24);
+		contentPane.add(lstConversores);
 		
-		JButton btnNewButton = new JButton("Iniciar ");
-		btnNewButton.setFont(new Font("VT323", Font.BOLD, 22));
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(0, 0, 0));
-		btnNewButton.setBounds(190, 282, 126, 25);
-		contentPane.add(btnNewButton);
+		JButton btnIniciar = new JButton("Iniciar ");
+		btnIniciar.setFont(new Font("VT323", Font.BOLD, 22));
+		btnIniciar.setForeground(new Color(255, 255, 255));
+		btnIniciar.setBackground(new Color(0, 0, 0));
+		btnIniciar.setBounds(190, 282, 126, 25);
+		contentPane.add(btnIniciar);
 		
-		JButton btnNewButton_1 = new JButton("Cerrar");
-		btnNewButton_1.setFont(new Font("VT323", Font.BOLD, 22));
-		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBounds(525, 282, 117, 25);
-		contentPane.add(btnNewButton_1);
+		JButton btnCerrar = new JButton("Cerrar");
+		btnCerrar.setActionCommand("Cancel");
+		btnCerrar.setFont(new Font("VT323", Font.BOLD, 22));
+		btnCerrar.setBackground(new Color(0, 0, 0));
+		btnCerrar.setForeground(new Color(255, 255, 255));
+		btnCerrar.setBounds(525, 282, 117, 25);
+		contentPane.add(btnCerrar);
 		
 		JLabel label_1 = DefaultComponentFactory.getInstance().createLabel("");
 		label_1.setIcon(new ImageIcon(Menu.class.getResource("/mx/com/fuentes/142-1421531_e.png")));

@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
@@ -36,7 +39,7 @@ public class RespuestaConversorMonedas extends JDialog {
 	 */
 	public RespuestaConversorMonedas() {
 		setBackground(new Color(0, 0, 0));
-		setBounds(100, 100, 688, 456);
+		setBounds(100, 100, 697, 465);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -67,15 +70,15 @@ public class RespuestaConversorMonedas extends JDialog {
 			contentPanel.add(divisaEntrada);
 		}
 		{
-			JLabel lblEquivalenA = new JLabel("Equivalen a ");
+			JLabel lblEquivalenA = new JLabel("Equivalen a                Pesos Mexicanos");
 			lblEquivalenA.setFont(new Font("VT323", Font.BOLD, 22));
-			lblEquivalenA.setBounds(98, 136, 133, 15);
+			lblEquivalenA.setBounds(98, 136, 418, 15);
 			contentPanel.add(lblEquivalenA);
 		}
 		{
 			JLabel pesoSalida = new JLabel("$");
 			pesoSalida.setFont(new Font("VT323", Font.BOLD, 22));
-			pesoSalida.setBounds(243, 136, 70, 15);
+			pesoSalida.setBounds(224, 134, 70, 15);
 			contentPanel.add(pesoSalida);
 		}
 		{
@@ -96,6 +99,17 @@ public class RespuestaConversorMonedas extends JDialog {
 				btnRegresarAlConversor.setBackground(Color.BLACK);
 				btnRegresarAlConversor.setActionCommand("Cancel");
 				buttonPane.add(btnRegresarAlConversor);
+				
+				btnRegresarAlConversor.addActionListener(new ActionListener() {
+					
+					public void actionPerformed(ActionEvent e) {
+						ConversorDeMonedas conversorMoneda = new ConversorDeMonedas();
+						conversorMoneda.main(null);
+						dispose();
+						
+					}
+				});
+				
 			}
 			
 			JSeparator separator = new JSeparator();
@@ -108,6 +122,15 @@ public class RespuestaConversorMonedas extends JDialog {
 				btnCerrar.setForeground(new Color(255, 255, 255));
 				btnCerrar.setActionCommand("Cancel");
 				buttonPane.add(btnCerrar);
+				
+				btnCerrar.addActionListener(new ActionListener() {
+					
+					public void actionPerformed(ActionEvent e) {
+						System.exit(0);
+						
+					}
+				});
+				
 			}
 		}
 	}

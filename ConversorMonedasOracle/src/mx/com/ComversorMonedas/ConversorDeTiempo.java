@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
@@ -117,6 +120,16 @@ public class ConversorDeTiempo extends JDialog {
 				btnMenuPrincipal.setFont(new Font("VT323", Font.BOLD, 22));
 				btnMenuPrincipal.setBackground(Color.BLACK);
 				buttonPane.add(btnMenuPrincipal);
+				
+				btnMenuPrincipal.addActionListener(new ActionListener() {
+					
+					public void actionPerformed(ActionEvent e) {
+				          Menu menu = new Menu();
+				          menu.main(null);
+				          dispose();
+					}
+				});
+				
 			}
 			{
 				JSeparator separator = new JSeparator();
@@ -143,7 +156,17 @@ public class ConversorDeTiempo extends JDialog {
 				btnCerrar.setBackground(Color.BLACK);
 				btnCerrar.setActionCommand("Cancel");
 				buttonPane.add(btnCerrar);
+				
+				btnCerrar.addActionListener(new ActionListener() {
+					
+					public void actionPerformed(ActionEvent e) {
+						System.exit(0);
+						
+					}
+				});
 			}
+			
+			
 		}
 	}
 }

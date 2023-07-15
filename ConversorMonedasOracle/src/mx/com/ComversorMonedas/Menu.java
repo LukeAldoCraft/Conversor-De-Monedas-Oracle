@@ -24,6 +24,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Menu va crear la vnetana principal del programa en donde se podra elegir la opcion a realizar 
@@ -34,6 +36,7 @@ import javax.swing.JMenuItem;
  */
 
 public class Menu extends JFrame {
+	
 
 	private JPanel contentPane;
 
@@ -82,16 +85,16 @@ public class Menu extends JFrame {
 		label.setBounds(217, 115, 420, 21);
 		contentPane.add(label);
 		
-		JComboBox lstConversores = new JComboBox();
+		final JComboBox lstConversores = new JComboBox();
 		lstConversores.setBackground(new Color(0, 0, 0));
 		lstConversores.setForeground(new Color(255, 255, 255));
-		lstConversores.setModel(new DefaultComboBoxModel(new String[] {"Conversor de Monedas", "Conversor de Tiempo", "Calculo de Perimetro para Figuras"}));
+		lstConversores.setModel(new DefaultComboBoxModel(new String[] {"Conversor de Monedas", "Conversor de Tiempo"}));
 		lstConversores.setFont(new Font("VT323", Font.PLAIN, 22));
 		lstConversores.setToolTipText("");
 		lstConversores.setBounds(250, 169, 330, 24);
 		contentPane.add(lstConversores);
 		
-		JButton btnIniciar = new JButton("Iniciar ");
+		JButton btnIniciar = new JButton("Iniciar");
 		btnIniciar.setFont(new Font("VT323", Font.BOLD, 22));
 		btnIniciar.setForeground(new Color(255, 255, 255));
 		btnIniciar.setBackground(new Color(0, 0, 0));
@@ -110,5 +113,39 @@ public class Menu extends JFrame {
 		label_1.setIcon(new ImageIcon(Menu.class.getResource("/mx/com/fuentes/142-1421531_e.png")));
 		label_1.setBounds(95, 22, 199, 59);
 		contentPane.add(label_1);
+		
+		btnIniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			       String selectionOption = (String) lstConversores.getSelectedItem();  
+						if(selectionOption.equals("Conversor de Monedas")) {
+							   ConversorDeMonedas conversorm = new ConversorDeMonedas();
+							   conversorm.main(null);
+							   dispose();
+						} else if  (selectionOption.equals("Conversor de Tiempo")){
+							ConversorDeTiempo conversor = new ConversorDeTiempo();
+							conversor.main(null);
+							dispose();
+						}
+						
+			     
+				
+			}
+		});
+		
+		btnCerrar.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+				
+			}
+		});
+		
+		
+		
+		
+		
 	}
+	
+	
 }

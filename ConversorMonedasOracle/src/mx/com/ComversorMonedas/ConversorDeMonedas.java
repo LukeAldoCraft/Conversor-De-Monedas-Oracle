@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import javax.swing.JSeparator;
@@ -142,7 +145,28 @@ public class ConversorDeMonedas extends JDialog {
 				btnCerrar.setFont(new Font("VT323", Font.BOLD, 22));
 				btnCerrar.setActionCommand("Cancel");
 				buttonPane.add(btnCerrar);
+				
+				btnCerrar.addActionListener(new ActionListener() {
+					
+					public void actionPerformed(ActionEvent e) {
+					     System.exit(0);
+						
+					}
+				});
+				
 			}
+			
+			btnMenuPrincipal.addActionListener(new ActionListener() {
+				
+				public void actionPerformed(ActionEvent e) {
+					Menu menu = new Menu();
+					menu.main(null);
+					dispose();
+				}
+			});
+			
 		}
+				
+		
 	}
 }

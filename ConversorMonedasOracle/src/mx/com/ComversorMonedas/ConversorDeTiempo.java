@@ -11,26 +11,36 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+
 import javax.swing.ImageIcon;
+
 
 public class ConversorDeTiempo extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField horaEntrada1;
-	private JTextField horaEntrada2;
-
+	private JTextField horaEntrada;
+	private JTextField tiempoEntrada;
+    private HashMap valoresTiempo = new HashMap();   
+    public static String resultadoHora;
+    public static String resultadoTiempo;
+    public static String selectTiempo1;
+    public static String selectTiempo2;
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		try {
 			ConversorDeTiempo dialog = new ConversorDeTiempo();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -44,6 +54,18 @@ public class ConversorDeTiempo extends JDialog {
 	 * Create the dialog.
 	 */
 	public ConversorDeTiempo() {
+		
+		
+		valoresTiempo.put("SEGUNDOS", 3600.00);
+	    valoresTiempo.put("MINUTOS", 60.00);
+	    valoresTiempo.put("DIAS", 0.0416667);
+	    valoresTiempo.put("SEMANAS", 0.00595238);
+	    valoresTiempo.put("MESES", 0.00136986);
+		
+		
+		
+		
+		
 		setBackground(new Color(0, 0, 0));
 		setBounds(100, 100, 719, 434);
 		getContentPane().setLayout(new BorderLayout());
@@ -67,18 +89,18 @@ public class ConversorDeTiempo extends JDialog {
 		lblIngresaValor.setBounds(33, 137, 146, 27);
 		contentPanel.add(lblIngresaValor);
 		
-		horaEntrada1 = new JTextField();
-		horaEntrada1.setFont(new Font("VT323", Font.PLAIN, 22));
-		horaEntrada1.setColumns(10);
-		horaEntrada1.setBounds(178, 143, 44, 19);
-		contentPanel.add(horaEntrada1);
+		horaEntrada = new JTextField();
+		horaEntrada.setFont(new Font("VT323", Font.PLAIN, 22));
+		horaEntrada.setColumns(10);
+		horaEntrada.setBounds(178, 143, 100, 19);
+		contentPanel.add(horaEntrada);
 		
-		JComboBox lstTiempo1 = new JComboBox();
-		lstTiempo1.setModel(new DefaultComboBoxModel(new String[] {"SEGUNDOS", "MINUTOS", "DIAS", "SEMANAS", "AÑOS"}));
+		final JComboBox lstTiempo1 = new JComboBox();
+		lstTiempo1.setModel(new DefaultComboBoxModel(new String[] {"SEGUNDOS", "MINUTOS", "DIAS", "SEMANAS", "MESES"}));
 		lstTiempo1.setForeground(Color.WHITE);
 		lstTiempo1.setFont(new Font("VT323", Font.BOLD, 20));
 		lstTiempo1.setBackground(Color.BLACK);
-		lstTiempo1.setBounds(233, 140, 146, 24);
+		lstTiempo1.setBounds(307, 139, 146, 24);
 		contentPanel.add(lstTiempo1);
 		
 		JLabel lblConvertirDeHora_1 = new JLabel("Convertir de Tiempo a Hora:");
@@ -87,18 +109,18 @@ public class ConversorDeTiempo extends JDialog {
 		contentPanel.add(lblConvertirDeHora_1);
 		
 		JComboBox lstTiempo2 = new JComboBox();
-		lstTiempo2.setModel(new DefaultComboBoxModel(new String[] {"SEGUNDOS", "MINUTOS", "DIAS", "SEMANAS", "AÑOS"}));
+		lstTiempo2.setModel(new DefaultComboBoxModel(new String[] {"SEGUNDOS", "MINUTOS", "DIAS", "SEMANAS", "MESES"}));
 		lstTiempo2.setForeground(Color.WHITE);
 		lstTiempo2.setFont(new Font("VT323", Font.BOLD, 20));
 		lstTiempo2.setBackground(Color.BLACK);
 		lstTiempo2.setBounds(33, 285, 146, 24);
 		contentPanel.add(lstTiempo2);
 		
-		horaEntrada2 = new JTextField();
-		horaEntrada2.setFont(new Font("VT323", Font.PLAIN, 22));
-		horaEntrada2.setColumns(10);
-		horaEntrada2.setBounds(361, 287, 44, 19);
-		contentPanel.add(horaEntrada2);
+		tiempoEntrada = new JTextField();
+		tiempoEntrada.setFont(new Font("VT323", Font.PLAIN, 22));
+		tiempoEntrada.setColumns(10);
+		tiempoEntrada.setBounds(361, 287, 73, 19);
+		contentPanel.add(tiempoEntrada);
 		
 		JLabel lblIngresaValor_1 = new JLabel("Ingresa valor:");
 		lblIngresaValor_1.setFont(new Font("VT323", Font.BOLD, 22));
@@ -143,6 +165,42 @@ public class ConversorDeTiempo extends JDialog {
 				btnIniciar.setBackground(Color.BLACK);
 				btnIniciar.setActionCommand("OK");
 				buttonPane.add(btnIniciar);
+				
+				btnIniciar.addActionListener(new ActionListener() {
+					
+					public void actionPerformed(ActionEvent e) {
+						
+						 String textoHora = horaEntrada.getText();
+						 String textoTiempo = tiempoEntrada.getText();
+						 
+						 try {
+							 
+							 if(textoHora.isEmpty() || textoTiempo.isEmpty()) {
+									throw new MyEcxeption(0);
+								}  else if (Double.parseDouble(textoHora) == 0 || Double.parseDouble(textoTiempo) == 0) {
+									throw new MyEcxeption(1);
+								} 
+							 
+						 } catch (NumberFormatException eexeption){
+							 
+							 eexeption.printStackTrace();
+							 throw new MyEcxeption(2);
+								
+						 }
+						 
+						 selectTiempo1 = (String) lstTiempo1.getSelectedItem();
+						 
+						resultadoHora = String.valueOf((Double) valoresTiempo.get(selectTiempo1) * Double.parseDouble(textoHora));
+						 
+						selectTiempo2 = (String) lstTiempo2.getSelectedItem();
+						
+						resultadoTiempo = String.valueOf( Double.parseDouble(textoTiempo) / (Double) valoresTiempo.get(selectTiempo2));
+						
+						RespuestaConversorDeTiempo respuesta = new RespuestaConversorDeTiempo();
+						respuesta.main(null);
+						dispose();
+					}
+				});
 			}
 			{
 				JSeparator separator = new JSeparator();
@@ -168,5 +226,7 @@ public class ConversorDeTiempo extends JDialog {
 			
 			
 		}
+		
+		
 	}
 }

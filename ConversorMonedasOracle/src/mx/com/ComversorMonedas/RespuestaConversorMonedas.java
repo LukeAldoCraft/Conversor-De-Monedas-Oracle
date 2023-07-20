@@ -46,45 +46,45 @@ public class RespuestaConversorMonedas extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JLabel pesoEntrada = new JLabel("$");
+			JLabel pesoEntrada = new JLabel("");
 			pesoEntrada.setFont(new Font("VT323", Font.BOLD, 22));
-			pesoEntrada.setBounds(31, 58, 70, 15);
+			pesoEntrada.setBounds(31, 58, 92, 15);
 			contentPanel.add(pesoEntrada);
 		}
 		{
 			JLabel lblPesosMexicanosEquibalesn = new JLabel("Pesos Mexicanos equivalen  a");
 			lblPesosMexicanosEquibalesn.setFont(new Font("VT323", Font.BOLD, 22));
-			lblPesosMexicanosEquibalesn.setBounds(98, 60, 289, 15);
+			lblPesosMexicanosEquibalesn.setBounds(135, 58, 289, 15);
 			contentPanel.add(lblPesosMexicanosEquibalesn);
 		}
 		{
-			JLabel divisaSalida = new JLabel("$");
+			JLabel divisaSalida = new JLabel("");
 			divisaSalida.setFont(new Font("VT323", Font.BOLD, 22));
-			divisaSalida.setBounds(408, 60, 70, 15);
+			divisaSalida.setBounds(436, 58, 143, 15);
 			contentPanel.add(divisaSalida);
 		}
 		{
-			JLabel divisaEntrada = new JLabel("$");
+			JLabel divisaEntrada = new JLabel("");
 			divisaEntrada.setFont(new Font("VT323", Font.BOLD, 22));
-			divisaEntrada.setBounds(31, 134, 70, 15);
+			divisaEntrada.setBounds(31, 134, 92, 15);
 			contentPanel.add(divisaEntrada);
 		}
 		{
-			JLabel lblEquivalenA = new JLabel("Equivalen a                Pesos Mexicanos");
+			JLabel lblEquivalenA = new JLabel("Equivalen a                      Pesos Mexicanos");
 			lblEquivalenA.setFont(new Font("VT323", Font.BOLD, 22));
-			lblEquivalenA.setBounds(98, 136, 418, 15);
+			lblEquivalenA.setBounds(148, 134, 463, 15);
 			contentPanel.add(lblEquivalenA);
 		}
 		{
-			JLabel pesoSalida = new JLabel("$");
+			JLabel pesoSalida = new JLabel("");
 			pesoSalida.setFont(new Font("VT323", Font.BOLD, 22));
-			pesoSalida.setBounds(224, 134, 70, 15);
+			pesoSalida.setBounds(231, 134, 156, 15);
 			contentPanel.add(pesoSalida);
 		}
 		{
 			JLabel lblNewLabel = new JLabel("");
 			lblNewLabel.setIcon(new ImageIcon(RespuestaConversorMonedas.class.getResource("/mx/com/fuentes/moneda-peque.png")));
-			lblNewLabel.setBounds(257, 217, 113, 113);
+			lblNewLabel.setBounds(283, 219, 113, 113);
 			contentPanel.add(lblNewLabel);
 		}
 		{

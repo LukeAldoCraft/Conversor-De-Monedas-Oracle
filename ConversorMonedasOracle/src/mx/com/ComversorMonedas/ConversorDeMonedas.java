@@ -27,6 +27,10 @@ public class ConversorDeMonedas extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField datoEntrada1;
 	private JTextField datoEntrada2;
+	public static String datoRecivido1;
+	public static String datoRecivido2;
+	public static String divisaRecivida1;
+	public static String divisaRecivida2;
 
 	/**
 	 * Launch the application.
@@ -70,7 +74,7 @@ public class ConversorDeMonedas extends JDialog {
 		
 		datoEntrada1 = new JTextField();
 		datoEntrada1.setFont(new Font("VT323", Font.PLAIN, 22));
-		datoEntrada1.setBounds(173, 145, 44, 19);
+		datoEntrada1.setBounds(173, 145, 69, 19);
 		contentPanel.add(datoEntrada1);
 		datoEntrada1.setColumns(10);
 		
@@ -84,18 +88,18 @@ public class ConversorDeMonedas extends JDialog {
 		lstDivisa1.setBackground(new Color(0, 0, 0));
 		lstDivisa1.setFont(new Font("VT323", Font.BOLD, 20));
 		lstDivisa1.setModel(new DefaultComboBoxModel(new String[] {"DOLAR -  ESTADO UNIDENSE", "PESO - ARGENTINO", "PESO - CHILENO", "PESO - COLOMBIANO", "REAL - BRASILEÑO", "BOLIVAR - VENEZOLANO", "EURO", "LIBRA", " "}));
-		lstDivisa1.setBounds(230, 143, 233, 24);
+		lstDivisa1.setBounds(254, 143, 233, 24);
 		contentPanel.add(lstDivisa1);
 		
 		JLabel lblIngresaValor_1 = new JLabel("Ingresa valor:");
 		lblIngresaValor_1.setFont(new Font("VT323", Font.BOLD, 22));
-		lblIngresaValor_1.setBounds(268, 291, 149, 27);
+		lblIngresaValor_1.setBounds(26, 291, 149, 27);
 		contentPanel.add(lblIngresaValor_1);
 		
 		datoEntrada2 = new JTextField();
 		datoEntrada2.setFont(new Font("VT323", Font.PLAIN, 22));
 		datoEntrada2.setColumns(10);
-		datoEntrada2.setBounds(419, 295, 44, 19);
+		datoEntrada2.setBounds(173, 295, 83, 19);
 		contentPanel.add(datoEntrada2);
 		
 		JComboBox lstDivisa2 = new JComboBox();
@@ -103,7 +107,7 @@ public class ConversorDeMonedas extends JDialog {
 		lstDivisa2.setForeground(Color.WHITE);
 		lstDivisa2.setFont(new Font("VT323", Font.BOLD, 20));
 		lstDivisa2.setBackground(Color.BLACK);
-		lstDivisa2.setBounds(26, 293, 224, 24);
+		lstDivisa2.setBounds(263, 291, 224, 24);
 		contentPanel.add(lstDivisa2);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -133,6 +137,44 @@ public class ConversorDeMonedas extends JDialog {
 				btnIniciar.setActionCommand("OK");
 				buttonPane.add(btnIniciar);
 				getRootPane().setDefaultButton(btnIniciar);
+				
+				btnIniciar.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						String recivido1 = datoEntrada1.getText();
+						String recivido2 = datoEntrada2.getText();
+						datoRecivido1 = recivido1;
+						datoRecivido2 = recivido2;
+						divisaRecivida1 = (String)lstDivisa1.getSelectedItem();
+						divisaRecivida1 = (String)lstDivisa2.getSelectedItem();
+						
+						try {
+							 
+							 if(recivido1.isEmpty() || recivido2.isEmpty()) {
+									throw new MyEcxeption(0);
+								}  else if (Double.parseDouble(recivido1) == 0 || Double.parseDouble(recivido2) == 0) {
+									throw new MyEcxeption(1);
+								} 
+							 
+						 } catch (NumberFormatException eexeption){
+							 
+							 eexeption.printStackTrace();
+							 throw new MyEcxeption(2);
+								
+						 }
+						
+						
+						
+						
+						
+						
+						RespuestaConversorMonedas conversor = new  RespuestaConversorMonedas();
+						conversor.main(null);
+						dispose();
+					}
+				});
+				
 			}
 			
 			JSeparator separator_1 = new JSeparator();

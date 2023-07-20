@@ -36,6 +36,15 @@ public class RespuestaConversorDeTiempo extends JDialog {
 	 * Create the dialog.
 	 */
 	public RespuestaConversorDeTiempo() {
+		
+		ConversorDeTiempo conversor = new ConversorDeTiempo();
+		String resultado1 =  conversor.resultadoHora;
+		String resultado2 = conversor.resultadoTiempo;
+		String seleccion1 = conversor.selectTiempo1;
+		String seleccion2 = conversor.selectTiempo2;
+		String recibido1 = conversor.resibioHora;
+		String recibido2 = conversor.resibidoTiempo;
+		
 		setBackground(new Color(0, 0, 0));
 		setBounds(100, 100, 706, 457);
 		getContentPane().setLayout(new BorderLayout());
@@ -46,32 +55,32 @@ public class RespuestaConversorDeTiempo extends JDialog {
 		
 		JLabel horas1 = new JLabel("");
 		horas1.setFont(new Font("VT323", Font.BOLD, 22));
-		horas1.setBounds(35, 58, 70, 15);
+		horas1.setBounds(23, 58, 82, 15);
 		contentPanel.add(horas1);
 		
 		JLabel lblHorasEquivalenA = new JLabel("Horas equivalen a :");
 		lblHorasEquivalenA.setFont(new Font("VT323", Font.BOLD, 22));
-		lblHorasEquivalenA.setBounds(111, 60, 243, 15);
+		lblHorasEquivalenA.setBounds(99, 58, 243, 15);
 		contentPanel.add(lblHorasEquivalenA);
 		
 		JLabel tiempoC1 = new JLabel("");
 		tiempoC1.setFont(new Font("VT323", Font.BOLD, 22));
-		tiempoC1.setBounds(345, 60, 70, 15);
+		tiempoC1.setBounds(317, 58, 297, 15);
 		contentPanel.add(tiempoC1);
 		
 		JLabel horas2 = new JLabel("");
 		horas2.setFont(new Font("VT323", Font.BOLD, 22));
-		horas2.setBounds(35, 155, 70, 15);
+		horas2.setBounds(35, 155, 109, 15);
 		contentPanel.add(horas2);
 		
-		JLabel lblTiempoEquivalenA = new JLabel(" equivalen a  :              Horas");
+		JLabel lblTiempoEquivalenA = new JLabel("equivalen a  :                              Horas");
 		lblTiempoEquivalenA.setFont(new Font("VT323", Font.BOLD, 22));
-		lblTiempoEquivalenA.setBounds(111, 155, 325, 15);
+		lblTiempoEquivalenA.setBounds(147, 155, 510, 15);
 		contentPanel.add(lblTiempoEquivalenA);
 		
 		JLabel tiempoC2 = new JLabel("");
 		tiempoC2.setFont(new Font("VT323", Font.BOLD, 22));
-		tiempoC2.setBounds(280, 155, 70, 15);
+		tiempoC2.setBounds(303, 155, 230, 15);
 		contentPanel.add(tiempoC2);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -115,5 +124,12 @@ public class RespuestaConversorDeTiempo extends JDialog {
 				}
 			});
 		}
+		
+		horas1.setText(recibido1);
+		tiempoC1.setText(resultado1.concat(" " + seleccion1));
+	    horas2.setText(recibido2.concat(" " + seleccion2));
+	    tiempoC2.setText(resultado2);
+		
+		
 	}
 }

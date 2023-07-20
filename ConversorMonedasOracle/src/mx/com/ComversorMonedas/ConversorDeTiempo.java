@@ -36,6 +36,8 @@ public class ConversorDeTiempo extends JDialog {
     public static String resultadoTiempo;
     public static String selectTiempo1;
     public static String selectTiempo2;
+    public static String resibioHora;
+    public static String resibidoTiempo;
 	/**
 	 * Launch the application.
 	 */
@@ -113,18 +115,18 @@ public class ConversorDeTiempo extends JDialog {
 		lstTiempo2.setForeground(Color.WHITE);
 		lstTiempo2.setFont(new Font("VT323", Font.BOLD, 20));
 		lstTiempo2.setBackground(Color.BLACK);
-		lstTiempo2.setBounds(33, 285, 146, 24);
+		lstTiempo2.setBounds(307, 285, 146, 24);
 		contentPanel.add(lstTiempo2);
 		
 		tiempoEntrada = new JTextField();
 		tiempoEntrada.setFont(new Font("VT323", Font.PLAIN, 22));
 		tiempoEntrada.setColumns(10);
-		tiempoEntrada.setBounds(361, 287, 73, 19);
+		tiempoEntrada.setBounds(178, 287, 100, 19);
 		contentPanel.add(tiempoEntrada);
 		
 		JLabel lblIngresaValor_1 = new JLabel("Ingresa valor:");
 		lblIngresaValor_1.setFont(new Font("VT323", Font.BOLD, 22));
-		lblIngresaValor_1.setBounds(208, 283, 146, 27);
+		lblIngresaValor_1.setBounds(33, 283, 146, 27);
 		contentPanel.add(lblIngresaValor_1);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -172,6 +174,8 @@ public class ConversorDeTiempo extends JDialog {
 						
 						 String textoHora = horaEntrada.getText();
 						 String textoTiempo = tiempoEntrada.getText();
+						 resibioHora = textoHora;
+						 resibidoTiempo = textoTiempo;
 						 
 						 try {
 							 

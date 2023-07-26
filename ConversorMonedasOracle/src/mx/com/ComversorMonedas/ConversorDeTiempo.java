@@ -130,7 +130,7 @@ public class ConversorDeTiempo extends JDialog {
 		contentPanel.add(lblIngresaValor_1);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("/home/aldo/Documentos/EscuelaTareas/Conversor-De-Monedas-Oracle/ConversorMonedasOracle/bin/mx/com/fuentes/RELOJ2.png"));
+		lblNewLabel.setIcon(new ImageIcon("/fuentes/RELOJ2.png"));
 		lblNewLabel.setBounds(488, 31, 191, 298);
 		contentPanel.add(lblNewLabel);
 		{

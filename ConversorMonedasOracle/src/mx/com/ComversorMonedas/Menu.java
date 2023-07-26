@@ -26,6 +26,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 /**
  * Menu va crear la vnetana principal del programa en donde se podra elegir la opcion a realizar 
@@ -110,7 +111,10 @@ public class Menu extends JFrame {
 		contentPane.add(btnCerrar);
 		
 		JLabel label_1 = DefaultComponentFactory.getInstance().createLabel("");
-		label_1.setIcon(new ImageIcon("/home/aldo/Documentos/EscuelaTareas/Conversor-De-Monedas-Oracle/ConversorMonedasOracle/bin/mx/com/fuentes/142-1421531_e.png"));
+		String jarPath = new File(Menu.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParent();
+        String imagePath = jarPath + File.separator + "fuentes" + File.separator + "142-1421531_e.png";
+
+		label_1.setIcon(new ImageIcon(imagePath));
 		label_1.setBounds(95, 22, 199, 59);
 		contentPane.add(label_1);
 		

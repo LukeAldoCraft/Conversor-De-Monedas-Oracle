@@ -128,7 +128,7 @@ public class ConversorDeMonedas extends JDialog {
 		contentPanel.add(lstDivisa2);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(ConversorDeMonedas.class.getResource("/mx/com/fuentes/pingu-peque.png")));
+		lblNewLabel.setIcon(new ImageIcon("/home/aldo/Documentos/EscuelaTareas/Conversor-De-Monedas-Oracle/ConversorMonedasOracle/bin/mx/com/fuentes/pingu-peque.png"));
 		lblNewLabel.setBounds(505, 86, 182, 212);
 		contentPanel.add(lblNewLabel);
 		{

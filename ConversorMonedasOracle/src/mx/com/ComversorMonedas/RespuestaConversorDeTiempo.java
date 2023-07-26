@@ -84,7 +84,7 @@ public class RespuestaConversorDeTiempo extends JDialog {
 		contentPanel.add(tiempoC2);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(RespuestaConversorDeTiempo.class.getResource("/mx/com/fuentes/relogne.png")));
+		lblNewLabel.setIcon(new ImageIcon("/home/aldo/Documentos/EscuelaTareas/Conversor-De-Monedas-Oracle/ConversorMonedasOracle/bin/mx/com/fuentes/relogne.png"));
 		lblNewLabel.setBounds(280, 218, 128, 133);
 		contentPanel.add(lblNewLabel);
 		{

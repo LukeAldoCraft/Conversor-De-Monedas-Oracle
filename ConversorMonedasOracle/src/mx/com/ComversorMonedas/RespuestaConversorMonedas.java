@@ -108,7 +108,7 @@ public class RespuestaConversorMonedas extends JDialog {
 		}
 		{
 			JLabel lblNewLabel = new JLabel("");
-			lblNewLabel.setIcon(new ImageIcon(RespuestaConversorMonedas.class.getResource("/mx/com/fuentes/moneda-peque.png")));
+			lblNewLabel.setIcon(new ImageIcon("/home/aldo/Documentos/EscuelaTareas/Conversor-De-Monedas-Oracle/ConversorMonedasOracle/bin/mx/com/fuentes/moneda-peque.png"));
 			lblNewLabel.setBounds(288, 198, 113, 113);
 			contentPanel.add(lblNewLabel);
 		}

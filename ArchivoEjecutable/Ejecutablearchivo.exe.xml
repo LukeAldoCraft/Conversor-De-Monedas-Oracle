@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>/home/aldo/Documentos/EscuelaTareas/Conversor-De-Monedas-Oracle/ArchivoEjecutable/ConversorEjecutable.jar</jar>
+  <outfile>/home/aldo/Documentos/EscuelaTareas/Conversor-De-Monedas-Oracle/ArchivoEjecutable/EjecutableConversor.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir></chdir>
+  <priority>normal</priority>
+  <downloadUrl></downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon></icon>
+  <jre>
+    <path>/usr/lib/jvm/jre-1.8-oracle-x64</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion>1.8.0</minVersion>
+    <maxVersion>11.0.0</maxVersion>
+  </jre>
+</launch4jConfig>

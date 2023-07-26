@@ -110,7 +110,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnCerrar);
 		
 		JLabel label_1 = DefaultComponentFactory.getInstance().createLabel("");
-		label_1.setIcon(new ImageIcon(Menu.class.getResource("/mx/com/fuentes/142-1421531_e.png")));
+		label_1.setIcon(new ImageIcon(getClass().getResource("/mx/com/fuentes/142-1421531_e.png")));
 		label_1.setBounds(95, 22, 199, 59);
 		contentPane.add(label_1);
 		

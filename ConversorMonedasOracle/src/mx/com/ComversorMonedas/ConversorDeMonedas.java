@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
@@ -27,10 +28,13 @@ public class ConversorDeMonedas extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField datoEntrada1;
 	private JTextField datoEntrada2;
+	private HashMap valoresDivisa = new HashMap();
 	public static String datoRecivido1;
 	public static String datoRecivido2;
 	public static String divisaRecivida1;
 	public static String divisaRecivida2;
+	public static String resultadoDivisa1;
+	public static String resultadoDivisa2;
 
 	/**
 	 * Launch the application.
@@ -49,6 +53,19 @@ public class ConversorDeMonedas extends JDialog {
 	 * Create the dialog.
 	 */
 	public ConversorDeMonedas() {
+		
+		
+		valoresDivisa.put("DOLAR -  ESTADO UNIDENSE", "USD");
+		valoresDivisa.put("PESO - ARGENTINO", "ARS");
+		valoresDivisa.put("PESO - CHILENO", "CLP");
+		valoresDivisa.put("PESO - COLOMBIANO", "COP");
+		valoresDivisa.put("REAL - BRASILEÑO", "BRL");
+		valoresDivisa.put("BOLIVAR - VENEZOLANO", "VEF");
+		valoresDivisa.put("EURO", "EUR");
+		valoresDivisa.put("LIBRA", "GBP");
+		
+		
+		
 		setBackground(new Color(0, 0, 0));
 		setBounds(100, 100, 703, 446);
 		getContentPane().setLayout(new BorderLayout());
@@ -87,7 +104,7 @@ public class ConversorDeMonedas extends JDialog {
 		lstDivisa1.setForeground(new Color(255, 255, 255));
 		lstDivisa1.setBackground(new Color(0, 0, 0));
 		lstDivisa1.setFont(new Font("VT323", Font.BOLD, 20));
-		lstDivisa1.setModel(new DefaultComboBoxModel(new String[] {"DOLAR -  ESTADO UNIDENSE", "PESO - ARGENTINO", "PESO - CHILENO", "PESO - COLOMBIANO", "REAL - BRASILEÑO", "BOLIVAR - VENEZOLANO", "EURO", "LIBRA", " "}));
+		lstDivisa1.setModel(new DefaultComboBoxModel(new String[] {"DOLAR -  ESTADO UNIDENSE", "PESO - ARGENTINO", "PESO - CHILENO", "PESO - COLOMBIANO", "REAL - BRASILEÑO", "BOLIVAR - VENEZOLANO", "EURO", "LIBRA"}));
 		lstDivisa1.setBounds(254, 143, 233, 24);
 		contentPanel.add(lstDivisa1);
 		
@@ -147,7 +164,8 @@ public class ConversorDeMonedas extends JDialog {
 						datoRecivido1 = recivido1;
 						datoRecivido2 = recivido2;
 						divisaRecivida1 = (String)lstDivisa1.getSelectedItem();
-						divisaRecivida1 = (String)lstDivisa2.getSelectedItem();
+						divisaRecivida2 = (String)lstDivisa2.getSelectedItem();
+						
 						
 						try {
 							 
@@ -166,6 +184,20 @@ public class ConversorDeMonedas extends JDialog {
 						
 						
 						
+						double monto = Double.parseDouble(recivido1);
+						String monedaBase = "MXN";
+						String monedaObjetivo = (String) valoresDivisa.get(divisaRecivida1);
+						
+						apiSolicitud api = new apiSolicitud("e3f8331596-974a05189e-rydmef");
+						resultadoDivisa1 = String.valueOf(api.conversorDivisa(monto, monedaBase, monedaObjetivo));
+						
+						
+						double monto2 = Double.parseDouble(recivido2);
+						String monedaBase2 = (String) valoresDivisa.get(divisaRecivida2);
+						String monedaObjetivo2 = "MXN";
+						
+						apiSolicitud api2 = new apiSolicitud("e3f8331596-974a05189e-rydmef");
+						resultadoDivisa2 = String.valueOf(api2.conversorDivisa(monto2, monedaBase2, monedaObjetivo2));
 						
 						
 						

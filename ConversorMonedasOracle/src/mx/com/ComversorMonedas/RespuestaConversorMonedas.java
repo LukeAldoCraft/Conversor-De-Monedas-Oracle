@@ -38,8 +38,21 @@ public class RespuestaConversorMonedas extends JDialog {
 	 * Create the dialog.
 	 */
 	public RespuestaConversorMonedas() {
+		
+		ConversorDeMonedas conversor = new ConversorDeMonedas();
+		String resultado1 =  conversor.resultadoDivisa1;
+		String resultado2 = conversor.resultadoDivisa2;
+		String seleccion1 = conversor.divisaRecivida1;
+		String seleccion2 = conversor.divisaRecivida2;
+		String recibido1 = conversor.datoRecivido1;
+		String recibido2 = conversor.datoRecivido2;
+		
+		
+		
+		
+		
 		setBackground(new Color(0, 0, 0));
-		setBounds(100, 100, 697, 465);
+		setBounds(100, 100, 717, 479);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -48,44 +61,62 @@ public class RespuestaConversorMonedas extends JDialog {
 		{
 			JLabel pesoEntrada = new JLabel("");
 			pesoEntrada.setFont(new Font("VT323", Font.BOLD, 22));
-			pesoEntrada.setBounds(31, 58, 92, 15);
+			pesoEntrada.setBounds(12, 58, 64, 15);
 			contentPanel.add(pesoEntrada);
+			
+			pesoEntrada.setText(recibido1);
+			
 		}
 		{
 			JLabel lblPesosMexicanosEquibalesn = new JLabel("Pesos Mexicanos equivalen  a");
 			lblPesosMexicanosEquibalesn.setFont(new Font("VT323", Font.BOLD, 22));
-			lblPesosMexicanosEquibalesn.setBounds(135, 58, 289, 15);
+			lblPesosMexicanosEquibalesn.setBounds(70, 58, 293, 15);
 			contentPanel.add(lblPesosMexicanosEquibalesn);
 		}
 		{
 			JLabel divisaSalida = new JLabel("");
 			divisaSalida.setFont(new Font("VT323", Font.BOLD, 22));
-			divisaSalida.setBounds(436, 58, 143, 15);
+			divisaSalida.setBounds(361, 58, 334, 15);
 			contentPanel.add(divisaSalida);
+			
+			divisaSalida.setText(resultado1.concat(" " + seleccion1));
+			
 		}
 		{
 			JLabel divisaEntrada = new JLabel("");
 			divisaEntrada.setFont(new Font("VT323", Font.BOLD, 22));
-			divisaEntrada.setBounds(31, 134, 92, 15);
+			divisaEntrada.setBounds(12, 134, 271, 15);
 			contentPanel.add(divisaEntrada);
+			
+			divisaEntrada.setText(recibido2.concat(" " + seleccion2));
+			
 		}
 		{
-			JLabel lblEquivalenA = new JLabel("Equivalen a                      Pesos Mexicanos");
+			JLabel lblEquivalenA = new JLabel("Equivalen a             Pesos Mexicanos");
 			lblEquivalenA.setFont(new Font("VT323", Font.BOLD, 22));
-			lblEquivalenA.setBounds(148, 134, 463, 15);
+			lblEquivalenA.setBounds(295, 134, 400, 15);
 			contentPanel.add(lblEquivalenA);
 		}
 		{
 			JLabel pesoSalida = new JLabel("");
 			pesoSalida.setFont(new Font("VT323", Font.BOLD, 22));
-			pesoSalida.setBounds(231, 134, 156, 15);
+			pesoSalida.setBounds(425, 134, 91, 15);
 			contentPanel.add(pesoSalida);
+			
+			pesoSalida.setText(resultado2);
+			
 		}
 		{
 			JLabel lblNewLabel = new JLabel("");
 			lblNewLabel.setIcon(new ImageIcon(RespuestaConversorMonedas.class.getResource("/mx/com/fuentes/moneda-peque.png")));
-			lblNewLabel.setBounds(283, 219, 113, 113);
+			lblNewLabel.setBounds(288, 198, 113, 113);
 			contentPanel.add(lblNewLabel);
+		}
+		{
+			JLabel lblElTipoDe = new JLabel("El tipo de cambio se actualiza en tiempo real gracias a una Api");
+			lblElTipoDe.setFont(new Font("VT323", Font.BOLD, 22));
+			lblElTipoDe.setBounds(39, 333, 622, 23);
+			contentPanel.add(lblElTipoDe);
 		}
 		{
 			JPanel buttonPane = new JPanel();

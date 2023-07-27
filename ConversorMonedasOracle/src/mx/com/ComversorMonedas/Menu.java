@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 import java.awt.Dimension;
 import java.awt.Label;
 import java.awt.Font;
+import java.awt.FontFormatException;
+
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenuBar;
 import java.awt.Scrollbar;
@@ -27,6 +29,7 @@ import javax.swing.JMenuItem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Menu va crear la vnetana principal del programa en donde se podra elegir la opcion a realizar 
@@ -66,9 +69,14 @@ public class Menu extends JFrame {
 	 * Instancia los detalles de la aplicacion de la ventana con tamaño y posicion.
 	 */
 	public Menu() {
+		
+		
+		String jarPath2 = new File(Menu.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParent();
+        String fontPath = jarPath2 + File.separator + "fuentes" + File.separator + "VT323-Regular.ttf";
+        
 		setBackground(new Color(0, 0, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 806, 402);
+		setBounds(100, 100, 882, 474);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -77,12 +85,12 @@ public class Menu extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel Titulo = DefaultComponentFactory.getInstance().createTitle("Menu Conversor");
-		Titulo.setFont(new Font("VT323", Font.BOLD, 28));
+		Titulo.setFont(new Font("VT323", Font.BOLD, 20));
 		Titulo.setBounds(331, 33, 202, 39);
 		contentPane.add(Titulo);
 		
 		Label label = new Label("Elige el tipo de conversor que deseas usar: ");
-		label.setFont(new Font("VT323", Font.BOLD, 22));
+		label.setFont(new Font("VT323", Font.BOLD, 16));
 		label.setBounds(217, 115, 420, 21);
 		contentPane.add(label);
 		
@@ -90,13 +98,13 @@ public class Menu extends JFrame {
 		lstConversores.setBackground(new Color(0, 0, 0));
 		lstConversores.setForeground(new Color(255, 255, 255));
 		lstConversores.setModel(new DefaultComboBoxModel(new String[] {"Conversor de Monedas", "Conversor de Tiempo"}));
-		lstConversores.setFont(new Font("VT323", Font.PLAIN, 22));
+		lstConversores.setFont(new Font("VT323", Font.PLAIN, 16));
 		lstConversores.setToolTipText("");
 		lstConversores.setBounds(250, 169, 330, 24);
 		contentPane.add(lstConversores);
 		
 		JButton btnIniciar = new JButton("Iniciar");
-		btnIniciar.setFont(new Font("VT323", Font.BOLD, 22));
+		btnIniciar.setFont(new Font("VT323", Font.BOLD, 16));
 		btnIniciar.setForeground(new Color(255, 255, 255));
 		btnIniciar.setBackground(new Color(0, 0, 0));
 		btnIniciar.setBounds(190, 282, 126, 25);
@@ -104,7 +112,7 @@ public class Menu extends JFrame {
 		
 		JButton btnCerrar = new JButton("Cerrar");
 		btnCerrar.setActionCommand("Cancel");
-		btnCerrar.setFont(new Font("VT323", Font.BOLD, 22));
+		btnCerrar.setFont(new Font("VT323", Font.BOLD, 16));
 		btnCerrar.setBackground(new Color(0, 0, 0));
 		btnCerrar.setForeground(new Color(255, 255, 255));
 		btnCerrar.setBounds(525, 282, 117, 25);
@@ -130,10 +138,7 @@ public class Menu extends JFrame {
 							ConversorDeTiempo conversor = new ConversorDeTiempo();
 							conversor.main(null);
 							dispose();
-						}
-						
-			     
-				
+						}	
 			}
 		});
 		
@@ -146,6 +151,22 @@ public class Menu extends JFrame {
 		});
 		
 		
+		 try {
+	            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
+	            Font customFont2 = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
+	            customFont = customFont.deriveFont(Font.BOLD, 16); 
+	            customFont2 = customFont2.deriveFont(Font.BOLD, 20); 
+	           
+	            Titulo.setFont(customFont2);
+	            label.setFont(customFont);
+	            lstConversores.setFont(customFont);
+	            btnIniciar.setFont(customFont);
+	            btnCerrar.setFont(customFont);
+	            
+	        } catch (IOException | FontFormatException e) {
+	            ((Throwable) e).printStackTrace();
+	           
+	        }
 		
 		
 		

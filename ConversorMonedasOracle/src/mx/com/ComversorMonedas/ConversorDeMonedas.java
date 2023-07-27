@@ -9,8 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 import javax.swing.JLabel;
@@ -64,10 +67,13 @@ public class ConversorDeMonedas extends JDialog {
 		valoresDivisa.put("EURO", "EUR");
 		valoresDivisa.put("LIBRA", "GBP");
 		
+		String jarPath2 = new File(Menu.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParent();
+        String fontPath = jarPath2 + File.separator + "fuentes" + File.separator + "VT323-Regular.ttf";
+        
 		
 		
 		setBackground(new Color(0, 0, 0));
-		setBounds(100, 100, 703, 446);
+		setBounds(100, 100, 854, 520);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -75,46 +81,46 @@ public class ConversorDeMonedas extends JDialog {
 		contentPanel.setLayout(null);
 		
 		JLabel lblConversorDeMonedas = DefaultComponentFactory.getInstance().createTitle("Conversor De Monedas");
-		lblConversorDeMonedas.setFont(new Font("VT323", Font.BOLD, 28));
+		lblConversorDeMonedas.setFont(new Font("VT323", Font.BOLD, 20));
 		lblConversorDeMonedas.setBounds(185, 23, 269, 39);
 		contentPanel.add(lblConversorDeMonedas);
 		
 		JLabel lblIngresaLaCantidad = new JLabel("Convertir de Peso Mexicano a Divisa:");
-		lblIngresaLaCantidad.setFont(new Font("VT323", Font.BOLD, 22));
+		lblIngresaLaCantidad.setFont(new Font("VT323", Font.BOLD, 16));
 		lblIngresaLaCantidad.setBounds(46, 86, 382, 39);
 		contentPanel.add(lblIngresaLaCantidad);
 		
 		JLabel lblIngresaValor = new JLabel("Ingresa valor:");
-		lblIngresaValor.setFont(new Font("VT323", Font.BOLD, 22));
+		lblIngresaValor.setFont(new Font("VT323", Font.BOLD, 16));
 		lblIngresaValor.setBounds(26, 141, 146, 27);
 		contentPanel.add(lblIngresaValor);
 		
 		datoEntrada1 = new JTextField();
-		datoEntrada1.setFont(new Font("VT323", Font.PLAIN, 22));
+		datoEntrada1.setFont(new Font("VT323", Font.PLAIN, 16));
 		datoEntrada1.setBounds(173, 145, 69, 19);
 		contentPanel.add(datoEntrada1);
 		datoEntrada1.setColumns(10);
 		
 		JLabel lblConvertiDeDivisa = new JLabel("Convertir de  Divisa a Peso Mexicano:");
-		lblConvertiDeDivisa.setFont(new Font("VT323", Font.BOLD, 22));
+		lblConvertiDeDivisa.setFont(new Font("VT323", Font.BOLD, 16));
 		lblConvertiDeDivisa.setBounds(46, 240, 382, 39);
 		contentPanel.add(lblConvertiDeDivisa);
 		
 		JComboBox lstDivisa1 = new JComboBox();
 		lstDivisa1.setForeground(new Color(255, 255, 255));
 		lstDivisa1.setBackground(new Color(0, 0, 0));
-		lstDivisa1.setFont(new Font("VT323", Font.BOLD, 20));
+		lstDivisa1.setFont(new Font("VT323", Font.BOLD, 16));
 		lstDivisa1.setModel(new DefaultComboBoxModel(new String[] {"DOLAR -  ESTADO UNIDENSE", "PESO - ARGENTINO", "PESO - CHILENO", "PESO - COLOMBIANO", "REAL - BRASILEÑO", "BOLIVAR - VENEZOLANO", "EURO", "LIBRA"}));
 		lstDivisa1.setBounds(254, 143, 233, 24);
 		contentPanel.add(lstDivisa1);
 		
 		JLabel lblIngresaValor_1 = new JLabel("Ingresa valor:");
-		lblIngresaValor_1.setFont(new Font("VT323", Font.BOLD, 22));
+		lblIngresaValor_1.setFont(new Font("VT323", Font.BOLD, 16));
 		lblIngresaValor_1.setBounds(26, 291, 149, 27);
 		contentPanel.add(lblIngresaValor_1);
 		
 		datoEntrada2 = new JTextField();
-		datoEntrada2.setFont(new Font("VT323", Font.PLAIN, 22));
+		datoEntrada2.setFont(new Font("VT323", Font.PLAIN, 16));
 		datoEntrada2.setColumns(10);
 		datoEntrada2.setBounds(173, 295, 83, 19);
 		contentPanel.add(datoEntrada2);
@@ -122,13 +128,15 @@ public class ConversorDeMonedas extends JDialog {
 		JComboBox lstDivisa2 = new JComboBox();
 		lstDivisa2.setModel(new DefaultComboBoxModel(new String[] {"DOLAR -  ESTADO UNIDENSE", "PESO - ARGENTINO", "PESO - CHILENO", "PESO - COLOMBIANO", "REAL - BRASILEÑO", "BOLIVAR - VENEZOLANO", "EURO", "LIBRA"}));
 		lstDivisa2.setForeground(Color.WHITE);
-		lstDivisa2.setFont(new Font("VT323", Font.BOLD, 20));
+		lstDivisa2.setFont(new Font("VT323", Font.BOLD, 16));
 		lstDivisa2.setBackground(Color.BLACK);
 		lstDivisa2.setBounds(263, 291, 224, 24);
 		contentPanel.add(lstDivisa2);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("/fuentes/pingu-peque.png"));
+		String jarPath = new File(Menu.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParent();
+        String imagePath = jarPath + File.separator + "fuentes" + File.separator + "pingu-peque.png";
+		lblNewLabel.setIcon(new ImageIcon(imagePath));
 		lblNewLabel.setBounds(505, 86, 182, 212);
 		contentPanel.add(lblNewLabel);
 		{
@@ -138,7 +146,7 @@ public class ConversorDeMonedas extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			
 			JButton btnMenuPrincipal = new JButton("Menu Principal");
-			btnMenuPrincipal.setFont(new Font("VT323", Font.BOLD, 22));
+			btnMenuPrincipal.setFont(new Font("VT323", Font.BOLD, 16));
 			btnMenuPrincipal.setForeground(new Color(255, 255, 255));
 			btnMenuPrincipal.setBackground(new Color(0, 0, 0));
 			buttonPane.add(btnMenuPrincipal);
@@ -150,7 +158,7 @@ public class ConversorDeMonedas extends JDialog {
 				JButton btnIniciar = new JButton("Iniciar");
 				btnIniciar.setForeground(new Color(255, 255, 255));
 				btnIniciar.setBackground(new Color(0, 0, 0));
-				btnIniciar.setFont(new Font("VT323", Font.BOLD, 22));
+				btnIniciar.setFont(new Font("VT323", Font.BOLD, 16));
 				btnIniciar.setActionCommand("OK");
 				buttonPane.add(btnIniciar);
 				getRootPane().setDefaultButton(btnIniciar);
@@ -207,6 +215,17 @@ public class ConversorDeMonedas extends JDialog {
 					}
 				});
 				
+				try {
+		            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
+		            customFont = customFont.deriveFont(Font.BOLD, 16); 
+		           
+		         btnIniciar.setFont(customFont);
+		            
+		        } catch (IOException | FontFormatException e) {
+		            ((Throwable) e).printStackTrace();
+		           
+		        }
+				
 			}
 			
 			JSeparator separator_1 = new JSeparator();
@@ -216,7 +235,7 @@ public class ConversorDeMonedas extends JDialog {
 				JButton btnCerrar = new JButton("Cerrar");
 				btnCerrar.setBackground(new Color(0, 0, 0));
 				btnCerrar.setForeground(new Color(255, 255, 255));
-				btnCerrar.setFont(new Font("VT323", Font.BOLD, 22));
+				btnCerrar.setFont(new Font("VT323", Font.BOLD, 16));
 				btnCerrar.setActionCommand("Cancel");
 				buttonPane.add(btnCerrar);
 				
@@ -228,6 +247,17 @@ public class ConversorDeMonedas extends JDialog {
 					}
 				});
 				
+				try {
+		            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
+		            customFont = customFont.deriveFont(Font.BOLD, 16); 
+		           
+		         btnCerrar.setFont(customFont);
+		            
+		        } catch (IOException | FontFormatException e) {
+		            ((Throwable) e).printStackTrace();
+		           
+		        }
+				
 			}
 			
 			btnMenuPrincipal.addActionListener(new ActionListener() {
@@ -238,6 +268,33 @@ public class ConversorDeMonedas extends JDialog {
 					dispose();
 				}
 			});
+			
+			
+			
+			try {
+	            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
+	            customFont = customFont.deriveFont(Font.BOLD, 16); 
+	            Font customFont2 = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
+	            customFont2 = customFont2.deriveFont(Font.BOLD, 20); 
+	            
+	            
+                 lblConversorDeMonedas.setFont(customFont2);
+                 lblIngresaLaCantidad.setFont(customFont);
+                 lblIngresaValor.setFont(customFont);
+                 datoEntrada1.setFont(customFont);
+                 lblConvertiDeDivisa.setFont(customFont);
+                 lstDivisa1.setFont(customFont);
+                 lblIngresaValor_1.setFont(customFont);
+                 datoEntrada2.setFont(customFont);
+                 lstDivisa2.setFont(customFont);
+                 btnMenuPrincipal.setFont(customFont);
+                 
+	            
+	        } catch (IOException | FontFormatException e) {
+	            ((Throwable) e).printStackTrace();
+	           
+	        }
+			
 			
 		}
 				

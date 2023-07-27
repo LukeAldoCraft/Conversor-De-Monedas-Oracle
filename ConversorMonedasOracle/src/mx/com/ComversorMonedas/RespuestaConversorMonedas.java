@@ -72,7 +72,7 @@ public class RespuestaConversorMonedas extends JDialog {
 
 			 try {
 		            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-		            customFont = customFont.deriveFont(Font.BOLD, 16); 
+		            customFont = customFont.deriveFont(Font.BOLD, 20); 
 		            
 		            pesoEntrada.setFont(customFont);
 		            
@@ -89,7 +89,7 @@ public class RespuestaConversorMonedas extends JDialog {
 			
 			try {
 	            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-	            customFont = customFont.deriveFont(Font.BOLD, 16); 
+	            customFont = customFont.deriveFont(Font.BOLD, 20); 
 	            lblPesosMexicanosEquibalesn.setFont(customFont);
 	            
 	        } catch (IOException | FontFormatException e) {
@@ -106,7 +106,7 @@ public class RespuestaConversorMonedas extends JDialog {
 			divisaSalida.setText(resultado1.concat(" " + seleccion1));
 			try {
 	            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-	            customFont = customFont.deriveFont(Font.BOLD, 16); 
+	            customFont = customFont.deriveFont(Font.BOLD, 20); 
 	            divisaSalida.setFont(customFont);
 	            
 	        } catch (IOException | FontFormatException e) {
@@ -123,7 +123,7 @@ public class RespuestaConversorMonedas extends JDialog {
 			divisaEntrada.setText(recibido2.concat(" " + seleccion2));
 			try {
 	            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-	            customFont = customFont.deriveFont(Font.BOLD, 16); 
+	            customFont = customFont.deriveFont(Font.BOLD, 20); 
 	            divisaEntrada.setFont(customFont);
 	            
 	        } catch (IOException | FontFormatException e) {
@@ -132,13 +132,13 @@ public class RespuestaConversorMonedas extends JDialog {
 	        }
 		}
 		{
-			JLabel lblEquivalenA = new JLabel("Equivalen a             Pesos Mexicanos");
+			JLabel lblEquivalenA = new JLabel("Equivalen a                               Pesos Mexicanos");
 			lblEquivalenA.setFont(new Font("VT323", Font.BOLD, 16));
-			lblEquivalenA.setBounds(295, 134, 400, 15);
+			lblEquivalenA.setBounds(295, 134, 476, 15);
 			contentPanel.add(lblEquivalenA);
 			try {
 	            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-	            customFont = customFont.deriveFont(Font.BOLD, 16); 
+	            customFont = customFont.deriveFont(Font.BOLD, 20); 
 	            lblEquivalenA.setFont(customFont);
 	            
 	        } catch (IOException | FontFormatException e) {
@@ -150,14 +150,14 @@ public class RespuestaConversorMonedas extends JDialog {
 		{
 			JLabel pesoSalida = new JLabel("");
 			pesoSalida.setFont(new Font("VT323", Font.BOLD, 16));
-			pesoSalida.setBounds(425, 134, 91, 15);
+			pesoSalida.setBounds(400, 134, 91, 15);
 			contentPanel.add(pesoSalida);
 			
 			pesoSalida.setText(resultado2);
 			
 			try {
 	            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-	            customFont = customFont.deriveFont(Font.BOLD, 16); 
+	            customFont = customFont.deriveFont(Font.BOLD, 20); 
 	            pesoSalida.setFont(customFont);
 	            
 	        } catch (IOException | FontFormatException e) {
@@ -182,7 +182,7 @@ public class RespuestaConversorMonedas extends JDialog {
 			
 			try {
 	            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-	            customFont = customFont.deriveFont(Font.BOLD, 16); 
+	            customFont = customFont.deriveFont(Font.BOLD, 20); 
 	            lblElTipoDe.setFont(customFont);
 	            
 	        } catch (IOException | FontFormatException e) {
@@ -215,7 +215,7 @@ public class RespuestaConversorMonedas extends JDialog {
 				
 				try {
 		            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-		            customFont = customFont.deriveFont(Font.BOLD, 16); 
+		            customFont = customFont.deriveFont(Font.BOLD, 20); 
 		            btnRegresarAlConversor.setFont(customFont);
 		            
 		        } catch (IOException | FontFormatException e) {
@@ -230,7 +230,7 @@ public class RespuestaConversorMonedas extends JDialog {
 			buttonPane.add(separator);
 			{
 				JButton btnCerrar = new JButton("Cerrar");
-				btnCerrar.setFont(new Font("VT323", Font.BOLD, 16));
+				btnCerrar.setFont(new Font("VT323", Font.BOLD, 20));
 				btnCerrar.setBackground(new Color(0, 0, 0));
 				btnCerrar.setForeground(new Color(255, 255, 255));
 				btnCerrar.setActionCommand("Cancel");
@@ -246,7 +246,7 @@ public class RespuestaConversorMonedas extends JDialog {
 				
 				try {
 		            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-		            customFont = customFont.deriveFont(Font.BOLD, 16); 
+		            customFont = customFont.deriveFont(Font.BOLD, 20); 
 		            btnCerrar.setFont(customFont);
 		            
 		        } catch (IOException | FontFormatException e) {

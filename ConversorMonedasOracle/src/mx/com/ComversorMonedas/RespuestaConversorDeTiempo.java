@@ -139,7 +139,7 @@ public class RespuestaConversorDeTiempo extends JDialog {
 			 try {
 		            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
 		            
-		            customFont = customFont.deriveFont(Font.BOLD, 16); 
+		            customFont = customFont.deriveFont(Font.BOLD, 20); 
 		            
 
 		            horas1.setFont(customFont);

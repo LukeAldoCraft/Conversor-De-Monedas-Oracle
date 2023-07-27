@@ -167,7 +167,7 @@ public class ConversorDeTiempo extends JDialog {
 				 try {
 			            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
 			         
-			            customFont = customFont.deriveFont(Font.BOLD, 16); 
+			            customFont = customFont.deriveFont(Font.BOLD, 20); 
 			            
 			           
 			           btnMenuPrincipal.setFont(customFont);
@@ -234,7 +234,7 @@ public class ConversorDeTiempo extends JDialog {
 				 try {
 			            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
 			           
-			            customFont = customFont.deriveFont(Font.BOLD, 16); 
+			            customFont = customFont.deriveFont(Font.BOLD, 20); 
 			            
 			           
 			           btnIniciar.setFont(customFont);
@@ -271,7 +271,7 @@ public class ConversorDeTiempo extends JDialog {
 				 try {
 			            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
 			         
-			            customFont = customFont.deriveFont(Font.BOLD, 16); 
+			            customFont = customFont.deriveFont(Font.BOLD, 20); 
 			            
 			           
 			           btnCerrar.setFont(customFont);
@@ -291,8 +291,8 @@ public class ConversorDeTiempo extends JDialog {
 		 try {
 	            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
 	            Font customFont2 = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-	            customFont = customFont.deriveFont(Font.BOLD, 16); 
-	            customFont2 = customFont2.deriveFont(Font.BOLD, 20); 
+	            customFont = customFont.deriveFont(Font.BOLD, 20); 
+	            customFont2 = customFont2.deriveFont(Font.BOLD, 26); 
 	            
 	           lblNewJgoodiesTitle.setFont(customFont2);
 	           lblConvertirDeHora.setFont(customFont);

@@ -204,7 +204,7 @@ public class ConversorDeMonedas extends JDialog {
 						String monedaBase2 = (String) valoresDivisa.get(divisaRecivida2);
 						String monedaObjetivo2 = "MXN";
 						
-						apiSolicitud api2 = new apiSolicitud("e3f8331596-974a05189e-rydmef");
+						apiSolicitud api2 = new apiSolicitud("a054a0f186-a8db7e20bf-ryfl0m");
 						resultadoDivisa2 = String.valueOf(api2.conversorDivisa(monto2, monedaBase2, monedaObjetivo2));
 						
 						
@@ -217,7 +217,7 @@ public class ConversorDeMonedas extends JDialog {
 				
 				try {
 		            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-		            customFont = customFont.deriveFont(Font.BOLD, 16); 
+		            customFont = customFont.deriveFont(Font.BOLD, 20); 
 		           
 		         btnIniciar.setFont(customFont);
 		            
@@ -249,7 +249,7 @@ public class ConversorDeMonedas extends JDialog {
 				
 				try {
 		            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-		            customFont = customFont.deriveFont(Font.BOLD, 16); 
+		            customFont = customFont.deriveFont(Font.BOLD, 20); 
 		           
 		         btnCerrar.setFont(customFont);
 		            
@@ -273,9 +273,9 @@ public class ConversorDeMonedas extends JDialog {
 			
 			try {
 	            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-	            customFont = customFont.deriveFont(Font.BOLD, 16); 
+	            customFont = customFont.deriveFont(Font.BOLD, 20); 
 	            Font customFont2 = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-	            customFont2 = customFont2.deriveFont(Font.BOLD, 20); 
+	            customFont2 = customFont2.deriveFont(Font.BOLD, 26); 
 	            
 	            
                  lblConversorDeMonedas.setFont(customFont2);

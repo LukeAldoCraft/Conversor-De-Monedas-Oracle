@@ -94,6 +94,22 @@ public class Menu extends JFrame {
 		label.setBounds(217, 115, 420, 21);
 		contentPane.add(label);
 		
+		 try {
+	            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
+	            Font customFont2 = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
+	            customFont = customFont.deriveFont(Font.BOLD, 20); 
+	            customFont2 = customFont2.deriveFont(Font.BOLD, 26); 
+	           
+	           label.setFont(customFont);
+	            
+	            
+	        } catch (IOException | FontFormatException e) {
+	            ((Throwable) e).printStackTrace();
+	           
+	        }
+		
+		
+		
 		final JComboBox lstConversores = new JComboBox();
 		lstConversores.setBackground(new Color(0, 0, 0));
 		lstConversores.setForeground(new Color(255, 255, 255));
@@ -154,14 +170,14 @@ public class Menu extends JFrame {
 		 try {
 	            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
 	            Font customFont2 = Font.createFont(Font.TRUETYPE_FONT, new File(fontPath));
-	            customFont = customFont.deriveFont(Font.BOLD, 16); 
-	            customFont2 = customFont2.deriveFont(Font.BOLD, 20); 
+	            customFont = customFont.deriveFont(Font.BOLD, 20); 
+	            customFont2 = customFont2.deriveFont(Font.BOLD, 26); 
 	           
 	            Titulo.setFont(customFont2);
-	            label.setFont(customFont);
 	            lstConversores.setFont(customFont);
 	            btnIniciar.setFont(customFont);
 	            btnCerrar.setFont(customFont);
+	            
 	            
 	        } catch (IOException | FontFormatException e) {
 	            ((Throwable) e).printStackTrace();

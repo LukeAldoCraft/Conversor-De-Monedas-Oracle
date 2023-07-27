@@ -132,7 +132,7 @@ public class RespuestaConversorMonedas extends JDialog {
 	        }
 		}
 		{
-			JLabel lblEquivalenA = new JLabel("Equivalen a                               Pesos Mexicanos");
+			JLabel lblEquivalenA = new JLabel("Equivalen a                    Pesos Mexicanos");
 			lblEquivalenA.setFont(new Font("VT323", Font.BOLD, 16));
 			lblEquivalenA.setBounds(295, 134, 476, 15);
 			contentPanel.add(lblEquivalenA);
